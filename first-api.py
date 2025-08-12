@@ -38,6 +38,14 @@ def post_router():
     else:
         return "access denied", 401
 
+#decorator and route for post
+@api_app.route("/get-greeting", methods=['GET'])
+def get_router():
+    if flask.request.url == "http://127.0.0.1:5001/get-greeting?password=123abc":
+        return "here you go"
+    else:
+        return "access denied", 401
+    
 #run the app
 if __name__=="__main__":
     api_app.run(debug=True, port=5001)
